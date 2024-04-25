@@ -2,11 +2,12 @@
 //AutoKey cipher implementation project.
 public class AutoKey {
 
-	private static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	// private static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private static final String alphabet = "ZCYUOARHLFWPGVNMIDJQXBKETS";
 
 	public static void main(String[] args){
-		String msg = "HELLOIWOULDVERYMUCHLIKESOMEMORETIME";
-		String key = "NLP";
+		String msg = "BALLSCORINGISWHENITGOESINBASKET";
+		String key = "BASKETS";
 
 		if (key.matches("[-+]?\\d*\\.?\\d+"))
 			key = "" + alphabet.charAt(Integer.parseInt(key));
@@ -99,14 +100,22 @@ public class AutoKey {
 		System.out.print("Text to Decrypt     :  ");
 		for (int x = 0; x < msg.length(); x++) {
 			System.out.print(msg.charAt(x) + "  ");
+		}
+		System.out.println();
+
+		for (int x = 0; x < msg.length(); x++) {
+			if (currentKey.length() <= msg.length())
+				System.out.println(currentKey);
+			// System.out.print(msg.charAt(x) + "  ");
 			int get1 = alphabet.indexOf(msg.charAt(x));
 			int get2 = alphabet.indexOf(currentKey.charAt(x));
 			int total = (get1 - get2) % 26;
 			total = (total < 0) ? total + 26 : total;
 			decryptMsg += alphabet.charAt(total);
 			currentKey += alphabet.charAt(total);
+			
 		}
-		System.out.println();
+		// System.out.println();
 
 		System.out.print("corresponding number: ");
 		for (int x = 0; x < len; x++) {
@@ -138,6 +147,8 @@ public class AutoKey {
 
 		}
 		System.out.println();
+
+		// System.out.print("bigmegaletters" + decryptMsg);
 		return decryptMsg;
 	}
 }
