@@ -3,10 +3,10 @@
 public class AutoKey {
 
 	// private static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	private static final String alphabet = "ZCYUOARHLFWPGVNMIDJQXBKETS";
+	private static final String alphabet = "ZCYUOARHLFWPGVNMIDJQXBKETS ";
 
 	public static void main(String[] args){
-		String msg = "BALLSCORINGISWHENITGOESINBASKET";
+		String msg = "BALL SCORING IS WHEN IT GOES IN BASKET";
 		String key = "BASKETS";
 
 		if (key.matches("[-+]?\\d*\\.?\\d+"))
@@ -40,7 +40,7 @@ public class AutoKey {
 		for (int x = 0; x < len; x++) {
 			int first = alphabet.indexOf(msg.charAt(x));
 			int second = alphabet.indexOf(newKey.charAt(x));
-			int total = (first + second) % 26;
+			int total = (first + second) % 27;
 			System.out.print(msg.charAt(x) + "  ");
 			
 			encryptMsg += alphabet.charAt(total);
@@ -109,8 +109,8 @@ public class AutoKey {
 			// System.out.print(msg.charAt(x) + "  ");
 			int get1 = alphabet.indexOf(msg.charAt(x));
 			int get2 = alphabet.indexOf(currentKey.charAt(x));
-			int total = (get1 - get2) % 26;
-			total = (total < 0) ? total + 26 : total;
+			int total = (get1 - get2) % 27;
+			total = (total < 0) ? total + 27 : total;
 			decryptMsg += alphabet.charAt(total);
 			currentKey += alphabet.charAt(total);
 			
